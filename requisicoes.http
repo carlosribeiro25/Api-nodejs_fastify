@@ -1,0 +1,28 @@
+POST http://localhost:3333/courses
+Content-Type: application/json
+
+{
+    "title": "Curso de  mySQL"
+}
+#####
+
+GET http://localhost:3333/courses
+
+####
+
+GET http://localhost:3333/courses/a1f2286c-c476-42f4-8612-b50ed8fc3e69
+
+########
+
+DELETE http://localhost:3333/courses/dababd1b-63bd-4c70-bb0b-69403c9d92d7
+
+####
+
+PUT http://localhost:3333/courses/6b68b9a9-e227-4af9-ba89-44b452341c2a
+Content-Type: application/json
+
+{
+    "title": "Curso de Docker compose"
+}
+
+##########
