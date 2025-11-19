@@ -1,8 +1,11 @@
-// const fastify = require('fastify');
-// const crypto = require('crypto');
 
 import fastify from "fastify"
-import crypto from "node:crypto"
+import { db } from "./src/database/cliente.ts"
+import { courses } from "./src/database/schema.ts"
+import { eq } from "drizzle-orm"
+import { validatorCompiler, serializerCompiler, type ZodTypeProvider } from 'fastify-type-provider-zod'
+import { z } from 'zod'
+
 
 const server = fastify({
     logger: {
@@ -14,101 +17,111 @@ const server = fastify({
             },
         },
     },
+}).withTypeProvider<ZodTypeProvider>()
+
+server.setSerializerCompiler(serializerCompiler);
+server.setValidatorCompiler(validatorCompiler); 
+
+server.get('/courses', async (request, reply) => {
+    const result = await db.select().from(courses)
+    return reply.send({courses: result})
 })
 
-const courses = [
-    { id: '1', title: 'Curso de React' },
-    { id: '2', title: 'Curso de MongoDB' },
-    { id: '3', title: 'Curso de Javascript' }
-]
-
-server.get('/courses', (request, reply) => {
-    return reply.send({ courses })
-})
-
-server.get('/courses/:id', (request, reply) => {
-    type Params = {
-        id: string
+server.get('/courses/:id',{
+    schema: {
+        params: z.object({
+            id: z.string()
+        })
     }
-
-    const params = request.params as Params
+}, async (request, reply) => {
+   
+    const params = request.params 
 
     const courseId = params.id
 
-    const course = courses.find(course => course.id === courseId)
+    const result = await db.select().from(courses).where(eq(courses.id, courseId))
 
-    if (course) {
-        return { course }
+    if (result.length > 0) {
+        return { course: result[0] }
     }
 
     return reply.status(404).send(" Curso Nao encontrado!")
 })
 
-server.post('/courses', (request, reply) => {
-    type Body = {
-        title: string
+server.post('/courses', {
+    schema:{
+        body: z.object({
+            title: z.string().min(5, 'Título deve ter no mínimo 5 caracteres!'),
+            description: z.string().min(8, 'Descrição ter no mínimo 10 caracteres!')
+        })
+    },
+}, async (request, reply) => {
+   
+    
+    const courseTitle = request.body.title
+    const courseDescription = request.body.description
+
+    try {
+          const result = await db
+   .insert(courses)
+   .values({title: courseTitle,description: courseDescription})
+   .returning()
+
+    return reply.status(201).send({ courseId: result[0].id})
+
+    } catch (error) {
+        return reply.status(500).send({error: 'Falha ao criar o curso' })
     }
-    const body = request.body as Body
-
-    const courseId = crypto.randomUUID()
-    const courseTitle = body.title
-
-    if (!courseTitle) {
-        return reply.status(201).send({ courseId })
-    }
-
-    courses.push({ id: courseId, title: courseTitle })
-    return reply.status(201).send({ courseId })
-
 });
 
-server.delete('/courses/:id', (request, reply) => {
-
-    type Params = {
-        id: string
+server.delete('/courses/:id' , {
+    schema: {
+        params: z.object({
+            id: z.string()
+        })
     }
+}, async (request, reply) => {
 
-    const { id } = request.params as Params
+    const {id} = request.params 
 
-    const courseIndex = courses.findIndex(course => course.id === id)
-
-    if (courseIndex !== -1) {
-        const removedCourse = courses.splice(courseIndex, 1)
-        return reply.status(200).send({ message: `Curso ${removedCourse[0].title} deletado com sucesso!` });
+     const result = await db.delete(courses)
+    .where(eq(courses.id, id))
+    .returning()
+    
+    if(result.length > 0){
+        reply.status(200).send(`Curso deletado com sucesso`)
     } else {
-        return reply.status(404).send({ message: 'Curso não encontrado' })
+        reply.status(404).send("Curso nao encontrado!")
     }
-});
-
-server.put('/courses/:id', (request, reply) => {
-
-    type Params = {
-        id: string
-    }
-
-    type Body = {
-        title?: string
-    }
-
-    const { id } = request.params as Params
-    const { title } = (request.body as Body) || {}
-
-    const courseIndex = courses.findIndex(c => c.id === id)
-
-    if (courseIndex === -1) {
-        return reply.status(404).send({ message: 'Curso não encontrado' })
-    }
-
-    if (!title) {
-        return reply.status(400).send({ message: 'Campo "title" é obrigatório' })
-    }
-
-    courses[courseIndex].title = title
-
-    return reply.status(200).send({ message: 'Curso atualizado com sucesso', course: courses[courseIndex] })
-
 })
 
+server.put('/courses/:id', {
+    schema:{
+        params: z.object({
+            id: z.string()
+        }),
+
+        body: z.object({
+            title: z.string().min(5, 'Título deve ter no mínimo 5 caracteres!'),
+            description: z.string().min(10,'Descrição ter no mínimo 10 caracteres!')
+        })
+    }
+}, async (request, reply) => {    
+        const { id } = request.params 
+        const { title, description } = request.body
+
+        const result = await db
+            .update(courses)
+            .set({ title, description })
+            .where(eq(courses.id, id))
+            .returning();
+
+        if (result.length === 0) {
+            return reply.status(404).send({ error: 'Curso nao encontrado' })
+        }
+
+        return reply.status(200).send({ message: 'Curso atualizado com sucesso', course: result[0] })
+})
 
 server.listen({ port: 3333 }).then(() => {
     console.log("HTTP server runing!")

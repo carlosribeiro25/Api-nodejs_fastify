@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1763353750169,
+      "tag": "0000_high_talkback",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1763401094285,
+      "tag": "0001_unusual_luke_cage",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1763577350445,
+      "tag": "0002_familiar_sunset_bain",
+      "breakpoints": true
+    }
+  ]
+}

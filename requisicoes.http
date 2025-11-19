@@ -2,7 +2,8 @@ POST http://localhost:3333/courses
 Content-Type: application/json
 
 {
-    "title": "Curso de  mySQL"
+    "title": "Cdfbdgggfgf fdfsf",
+    "description": "Pfodgggggddgg"
 }
 #####
 
@@ -10,19 +11,19 @@ GET http://localhost:3333/courses
 
 ####
 
-GET http://localhost:3333/courses/a1f2286c-c476-42f4-8612-b50ed8fc3e69
+GET http://localhost:3333/courses/fd0eaa9e-374e-46a7-8e4d-a6bb256885c8
 
-########
+######
 
-DELETE http://localhost:3333/courses/dababd1b-63bd-4c70-bb0b-69403c9d92d7
+DELETE http://localhost:3333/courses/63e2d911-3274-41c7-b9a3-9f7e7959c899
+######
 
-####
-
-PUT http://localhost:3333/courses/6b68b9a9-e227-4af9-ba89-44b452341c2a
+PUT http://localhost:3333/courses/fd0eaa9e-374e-46a7-8e4d-a6bb256885c8
 Content-Type: application/json
 
 {
-    "title": "Curso de Docker compose"
+    "title": "Curso de PHP",
+    "description": " PHP não morreu!"
 }
 
 ##########

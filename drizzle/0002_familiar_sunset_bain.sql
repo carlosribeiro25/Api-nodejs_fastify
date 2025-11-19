@@ -1,0 +1,2 @@
+ALTER TABLE "courses" ADD CONSTRAINT "title_length_check" CHECK (length("courses"."title") >= 5);--> statement-breakpoint
+ALTER TABLE "courses" ADD CONSTRAINT "description_length_check" CHECK (length("courses"."description") >= 10);
