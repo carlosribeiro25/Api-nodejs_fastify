@@ -36,7 +36,10 @@ server.get('/courses/:id',{
    
     const courseId = request.params.id
 
-    const result = await db.select().from(courses).where(eq(courses.id, courseId))
+    const result = await db
+    .select().
+    from(courses)
+    .where(eq(courses.id, courseId))
 
     if (result.length > 0) {
         return { course: result[0] }
