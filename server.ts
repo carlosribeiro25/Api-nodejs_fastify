@@ -6,7 +6,6 @@ import { eq } from "drizzle-orm"
 import { validatorCompiler, serializerCompiler, type ZodTypeProvider } from 'fastify-type-provider-zod'
 import { z } from 'zod'
 
-
 const server = fastify({
     logger: {
         transport: {
@@ -30,14 +29,12 @@ server.get('/courses', async (request, reply) => {
 server.get('/courses/:id',{
     schema: {
         params: z.object({
-            id: z.string()
+            id: z.uuid()
         })
     }
 }, async (request, reply) => {
    
-    const params = request.params 
-
-    const courseId = params.id
+    const courseId = request.params.id
 
     const result = await db.select().from(courses).where(eq(courses.id, courseId))
 
@@ -57,7 +54,6 @@ server.post('/courses', {
     },
 }, async (request, reply) => {
    
-    
     const courseTitle = request.body.title
     const courseDescription = request.body.description
 
