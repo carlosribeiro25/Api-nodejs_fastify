@@ -15,15 +15,18 @@ GET http://localhost:3333/courses/fd0eaa9e-374e-46a7-8e4d-a6bb256885c8
 
 ######
 
-DELETE http://localhost:3333/courses/63e2d911-3274-41c7-b9a3-9f7e7959c899
-######
-
-PUT http://localhost:3333/courses/fd0eaa9e-374e-46a7-8e4d-a6bb256885c8
+PUT http://localhost:3333/courses/7b3d0909-2819-476e-b4ea-9f4a935d38fc
 Content-Type: application/json
 
 {
-    "title": "Curso de PHP",
-    "description": " PHP não morreu!"
+    "title": "Curso de Javascript",
+    "description": "Curso completo!"
 }
 
 ##########
+
+DELETE http://localhost:3333/courses/63e2d911-3274-41c7-b9a3-9f7e7959c899
+
+######
+
+

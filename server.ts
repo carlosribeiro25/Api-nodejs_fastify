@@ -21,33 +21,6 @@ const server = fastify({
 server.setSerializerCompiler(serializerCompiler);
 server.setValidatorCompiler(validatorCompiler); 
 
-server.get('/courses', async (request, reply) => {
-    const result = await db.select().from(courses)
-    return reply.send({courses: result})
-})
-
-server.get('/courses/:id',{
-    schema: {
-        params: z.object({
-            id: z.uuid()
-        })
-    }
-}, async (request, reply) => {
-   
-    const courseId = request.params.id
-
-    const result = await db
-    .select().
-    from(courses)
-    .where(eq(courses.id, courseId))
-
-    if (result.length > 0) {
-        return { course: result[0] }
-    }
-
-    return reply.status(404).send(" Curso Nao encontrado!")
-})
-
 server.post('/courses', {
     schema:{
         body: z.object({
@@ -73,25 +46,31 @@ server.post('/courses', {
     }
 });
 
-server.delete('/courses/:id' , {
+server.get('/courses', async (request, reply) => {
+    const result = await db.select().from(courses)
+    return reply.send({courses: result})
+})
+
+server.get('/courses/:id',{
     schema: {
         params: z.object({
-            id: z.string()
+            id: z.uuid()
         })
     }
 }, async (request, reply) => {
+   
+    const courseId = request.params.id
 
-    const {id} = request.params 
+    const result = await db
+    .select().
+    from(courses)
+    .where(eq(courses.id, courseId))
 
-     const result = await db.delete(courses)
-    .where(eq(courses.id, id))
-    .returning()
-    
-    if(result.length > 0){
-        reply.status(200).send(`Curso deletado com sucesso`)
-    } else {
-        reply.status(404).send("Curso nao encontrado!")
+    if (result.length > 0) {
+        return { course: result[0] }
     }
+
+    return reply.status(404).send(" Curso Nao encontrado!")
 })
 
 server.put('/courses/:id', {
@@ -121,6 +100,29 @@ server.put('/courses/:id', {
 
         return reply.status(200).send({ message: 'Curso atualizado com sucesso', course: result[0] })
 })
+
+server.delete('/courses/:id' , {
+    schema: {
+        params: z.object({
+            id: z.string()
+        })
+    }
+}, async (request, reply) => {
+
+    const {id} = request.params 
+
+     const result = await db.delete(courses)
+    .where(eq(courses.id, id))
+    .returning()
+    
+    if(result.length > 0){
+        reply.status(200).send(`Curso deletado com sucesso`)
+    } else {
+        reply.status(404).send("Curso nao encontrado!")
+    }
+})
+
+
 
 server.listen({ port: 3333 }).then(() => {
     console.log("HTTP server runing!")
