@@ -10,7 +10,7 @@ server.delete('/courses/:id' , {
     schema: {
         tags: ['Courses'],
         params: z.object({
-            id: z.string()
+            id: z.uuid()
         }),
         response: {
             200: z.string(),

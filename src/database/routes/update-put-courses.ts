@@ -10,7 +10,7 @@ server.put('/courses/:id', {
     schema:{
         tags: ['Courses'],
         params: z.object({
-            id: z.string()
+            id: z.uuid()
         }),
 
         body: z.object({
