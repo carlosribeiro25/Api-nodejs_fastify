@@ -1,10 +1,16 @@
 
 import fastify from "fastify"
-import { db } from "./src/database/cliente.ts"
-import { courses } from "./src/database/schema.ts"
-import { eq } from "drizzle-orm"
-import { validatorCompiler, serializerCompiler, type ZodTypeProvider } from 'fastify-type-provider-zod'
-import { z } from 'zod'
+import { validatorCompiler, serializerCompiler, 
+type ZodTypeProvider,  jsonSchemaTransform } from 'fastify-type-provider-zod'
+import { fastifySwagger } from "@fastify/swagger"
+import fastifySwaggerUi from "@fastify/swagger-ui"
+import { createCourseRoute } from "./src/database/routes/create-courses.ts"
+import { getCourseRoute } from "./src/database/routes/get-courses.ts"
+import { getCourseByIDRoute } from "./src/database/routes/get-coursesById.ts"
+import { updateCourseRoutePatch } from "./src/database/routes/update-patch-courses.ts"
+import { updateCourseRoutePut } from "./src/database/routes/update-put-courses.ts"
+import { deleteCourseRoute } from "./src/database/routes/delete-courses.ts"
+
 
 const server = fastify({
     logger: {
@@ -21,108 +27,29 @@ const server = fastify({
 server.setSerializerCompiler(serializerCompiler);
 server.setValidatorCompiler(validatorCompiler); 
 
-server.post('/courses', {
-    schema:{
-        body: z.object({
-            title: z.string().min(5, 'Título deve ter no mínimo 5 caracteres!'),
-            description: z.string().min(8, 'Descrição ter no mínimo 10 caracteres!')
-        })
+if(process.env.NODE_ENV === 'development') {
+    server.register(fastifySwagger, {
+    openapi: {
+        info: {
+            title: 'API com Node js',
+            version: '1.0.0',
+        }
     },
-}, async (request, reply) => {
-   
-    const courseTitle = request.body.title
-    const courseDescription = request.body.description
 
-    try {
-          const result = await db
-   .insert(courses)
-   .values({title: courseTitle,description: courseDescription})
-   .returning()
-
-    return reply.status(201).send({ courseId: result[0].id})
-
-    } catch (error) {
-        return reply.status(500).send({error: 'Falha ao criar o curso' })
-    }
+    transform: jsonSchemaTransform,
 });
 
-server.get('/courses', async (request, reply) => {
-    const result = await db.select().from(courses)
-    return reply.send({courses: result})
-})
+server.register(fastifySwaggerUi,  {
+  routePrefix: '/docs',
+}) 
 
-server.get('/courses/:id',{
-    schema: {
-        params: z.object({
-            id: z.uuid()
-        })
-    }
-}, async (request, reply) => {
-   
-    const courseId = request.params.id
-
-    const result = await db
-    .select().
-    from(courses)
-    .where(eq(courses.id, courseId))
-
-    if (result.length > 0) {
-        return { course: result[0] }
-    }
-
-    return reply.status(404).send(" Curso Nao encontrado!")
-})
-
-server.put('/courses/:id', {
-    schema:{
-        params: z.object({
-            id: z.string()
-        }),
-
-        body: z.object({
-            title: z.string().min(5, 'Título deve ter no mínimo 5 caracteres!'),
-            description: z.string().min(10,'Descrição ter no mínimo 10 caracteres!')
-        })
-    }
-}, async (request, reply) => {    
-        const { id } = request.params 
-        const { title, description } = request.body
-
-        const result = await db
-            .update(courses)
-            .set({ title, description })
-            .where(eq(courses.id, id))
-            .returning();
-
-        if (result.length === 0) {
-            return reply.status(404).send({ error: 'Curso nao encontrado' })
-        }
-
-        return reply.status(200).send({ message: 'Curso atualizado com sucesso', course: result[0] })
-})
-
-server.delete('/courses/:id' , {
-    schema: {
-        params: z.object({
-            id: z.string()
-        })
-    }
-}, async (request, reply) => {
-
-    const {id} = request.params 
-
-     const result = await db.delete(courses)
-    .where(eq(courses.id, id))
-    .returning()
-    
-    if(result.length > 0){
-        reply.status(200).send(`Curso deletado com sucesso`)
-    } else {
-        reply.status(404).send("Curso nao encontrado!")
-    }
-})
-
-
+}
+server.register(createCourseRoute)
+server.register(getCourseRoute)
+server.register(getCourseByIDRoute)
+server.register(updateCourseRoutePatch)
+server.register(updateCourseRoutePut)
+server.register(deleteCourseRoute)
 
 server.listen({ port: 3333 }).then(() => {
     console.log("HTTP server runing!")

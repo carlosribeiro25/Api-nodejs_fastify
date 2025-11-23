@@ -2,8 +2,8 @@ POST http://localhost:3333/courses
 Content-Type: application/json
 
 {
-    "title": "Cdfbdgggfgf fdfsf",
-    "description": "Pfodgggggddgg"
+    "title": "Curso de react",
+    "description": "Crie interfaces com React"
 }
 #####
 
@@ -11,21 +11,30 @@ GET http://localhost:3333/courses
 
 ####
 
-GET http://localhost:3333/courses/fd0eaa9e-374e-46a7-8e4d-a6bb256885c8
-
+GET http://localhost:3333/courses/c4ba06c9-40ab-452b-808e-da139fb16215
 ######
 
-PUT http://localhost:3333/courses/7b3d0909-2819-476e-b4ea-9f4a935d38fc
+PUT http://localhost:3333/courses/98ecb290-2d60-4f17-854c-adae2fbabcf7
 Content-Type: application/json
 
 {
-    "title": "Curso de Javascript",
+    "title": "Curso de NodeJs",
     "description": "Curso completo!"
 }
 
 ##########
 
-DELETE http://localhost:3333/courses/63e2d911-3274-41c7-b9a3-9f7e7959c899
+PATCH http://localhost:3333/courses/98ecb290-2d60-4f17-854c-adae2fbabcf7
+Content-Type: application/json
+
+{
+    "title": "Curso de Angular"
+}
+
+
+###
+
+DELETE http://localhost:3333/courses/08e5693b-99f8-4053-a50d-0c9d9293eb0f
 
 ######
 
