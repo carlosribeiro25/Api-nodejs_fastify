@@ -2,16 +2,21 @@ POST http://localhost:3333/courses
 Content-Type: application/json
 
 {
-    "title": "Curso de react",
-    "description": "Crie interfaces com React"
+    "title": "Curso de .NET",
+    "description": "Programação Orientação a objetos"
 }
 #####
 
-GET http://localhost:3333/courses
-
+GET http://localhost:3333/courses?orderBy=title&page=3
 ####
 
-GET http://localhost:3333/courses/c4ba06c9-40ab-452b-808e-da139fb16215
+GET http://localhost:3333/courses
+###
+
+GET http://localhost:3333/courses?search=ang
+####
+
+GET http://localhost:3333/courses/0d2755f1-c1aa-419f-aa78-a563673e7227
 ######
 
 PUT http://localhost:3333/courses/98ecb290-2d60-4f17-854c-adae2fbabcf7
