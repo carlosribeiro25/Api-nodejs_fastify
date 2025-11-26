@@ -22,6 +22,27 @@
       "when": 1763577350445,
       "tag": "0002_familiar_sunset_bain",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1764170122103,
+      "tag": "0003_open_random",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1764172195762,
+      "tag": "0004_worried_marten_broadcloak",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1764172931990,
+      "tag": "0005_rich_colonel_america",
+      "breakpoints": true
     }
   ]
 }

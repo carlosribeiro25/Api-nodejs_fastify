@@ -45,7 +45,7 @@ server.get('/courses', {
         .from(courses)
         .orderBy(asc(courses[orderBy]))
         .offset((page - 1) *2)
-        .limit(4)
+        .limit(3)
         .where(and(...conditions)),
 
         db.$count(courses, and(...conditions))
