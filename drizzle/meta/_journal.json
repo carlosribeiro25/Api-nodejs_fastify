@@ -43,6 +43,13 @@
       "when": 1764172931990,
       "tag": "0005_rich_colonel_america",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1764177715316,
+      "tag": "0006_lively_songbird",
+      "breakpoints": true
     }
   ]
 }
