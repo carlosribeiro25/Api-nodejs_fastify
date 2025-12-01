@@ -1,6 +1,6 @@
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod" 
-import { db } from "../cliente.ts"
-import { courses } from "../schema.ts"
+import { db } from "../database/cliente.ts"
+import { courses } from "../database/schema.ts"
 import z from "zod"
 import { eq } from 'drizzle-orm'
 

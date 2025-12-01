@@ -2,8 +2,8 @@ POST http://localhost:3333/courses
 Content-Type: application/json
 
 {
-    "title": "Curso de .NET",
-    "description": "Programação Orientação a objetos"
+    "title": "Curso de Python",
+    "description": "Programação com Jango"
 }
 #####
 
@@ -13,7 +13,7 @@ GET http://localhost:3333/courses?orderBy=title&page=3
 GET http://localhost:3333/courses
 ###
 
-GET http://localhost:3333/courses?search=ang
+GET http://localhost:3333/courses?search=pyt
 ####
 
 GET http://localhost:3333/courses/0d2755f1-c1aa-419f-aa78-a563673e7227

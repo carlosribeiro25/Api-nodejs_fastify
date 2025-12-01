@@ -1,6 +1,6 @@
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod" 
-import { db } from "../cliente.ts"
-import { courses, enrollments } from "../schema.ts"
+import { db } from "../database/cliente.ts"
+import { courses, enrollments } from "../database/schema.ts"
 import { ilike, asc, and, SQL, eq, count} from "drizzle-orm"
 import z from "zod"
 
@@ -36,7 +36,6 @@ server.get('/courses', {
     const { search, orderBy, page } = request.query
     
     const conditions : SQL[] = []
-    
 
     if (search) {
         conditions.push(ilike(courses.title, `%${search}%`))
