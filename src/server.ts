@@ -1,4 +1,4 @@
-import { server } from "./app.ts"
+import {server} from './app.ts'
 
 
 server.listen({ port: 3333 }).then(() => {

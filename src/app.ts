@@ -51,4 +51,4 @@ server.register(updateCourseRoutePatch)
 server.register(updateCourseRoutePut)
 server.register(deleteCourseRoute)
 
-export { server }
+export {server}
