@@ -3,8 +3,6 @@ import { db } from "../database/cliente.ts"
 import { courses } from "../database/schema.ts"
 import z from "zod"
 import { eq } from 'drizzle-orm'
-import { title } from "process"
-import { error } from "console"
 
 export const getCourseByIDRoute: FastifyPluginAsyncZod =  async(server) => {
 

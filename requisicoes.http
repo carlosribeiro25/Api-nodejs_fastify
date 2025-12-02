@@ -37,11 +37,18 @@ Content-Type: application/json
     "title": "Curso de Angularr"
 }
 
-
 ###
 
 DELETE http://localhost:3333/courses/00c6eaa0-e035-432c-af1d-cb134e618bc6
 
 ######
+
+POST http://localhost:3333/sessions
+Content-Type: application/json
+
+{
+    "email": "MariaAlice.Moraes20@bol.com.br",
+    "password": "214580"
+}
 
 

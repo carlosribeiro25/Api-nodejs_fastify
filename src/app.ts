@@ -10,15 +10,16 @@ import { getCourseByIDRoute } from "./routes/get-coursesById.ts"
 import { updateCourseRoutePatch } from "./routes/patch-courses.ts"
 import { updateCourseRoutePut } from "./routes/put-courses.ts"
 import { deleteCourseRoute } from "./routes/delete-courses.ts"
+import { loginRouter } from "./routes/login.ts"
 
 
 const server = fastify({
     logger: {
         transport: {
-            target: 'pino-pretty',
-            options: {
-                translateTime: 'HH:MM:ss Z',
-                ignore: 'pid,hostname',
+        target: 'pino-pretty',
+        options: {
+            translateTime: 'HH:MM:ss Z',
+            ignore: 'pid,hostname',
             },
         },
     },
@@ -50,5 +51,6 @@ server.register(getCourseByIDRoute)
 server.register(updateCourseRoutePatch)
 server.register(updateCourseRoutePut)
 server.register(deleteCourseRoute)
+server.register(loginRouter)
 
 export {server}

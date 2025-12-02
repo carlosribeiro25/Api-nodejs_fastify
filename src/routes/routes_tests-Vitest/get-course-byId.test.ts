@@ -1,5 +1,5 @@
-import { test , expect } from 'vitest';
-import  request  from 'supertest';
+import { test, expect } from 'vitest';
+import request from 'supertest';
 import { server } from '../../app.ts'
 import { makeCourse } from '../../test/factories/make-course.ts';
 
@@ -9,15 +9,15 @@ test('Return a course ', async () => {
     const course = await makeCourse()
 
     const response = await request(server.server)
-      
-      .get(`/courses/${course.id}`)
+
+        .get(`/courses/${course.id}`)
 
     expect(response.status).toEqual(200)
     expect(response.body).toEqual({
         course: {
             id: expect.any(String),
             title: expect.any(String),
-            description:expect.any(String)
+            description: expect.any(String)
         }
     })
 })
