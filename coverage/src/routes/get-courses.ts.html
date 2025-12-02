@@ -136,11 +136,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -148,31 +146,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -193,72 +166,99 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod" 
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { db } from "../database/cliente.ts"
 import { courses, enrollments } from "../database/schema.ts"
-import { ilike, asc, and, SQL, eq, count} from "drizzle-orm"
+import { ilike, asc, and, SQL, eq, count } from "drizzle-orm"
 import z from "zod"
 &nbsp;
 &nbsp;
-export const getCourseRoute: FastifyPluginAsyncZod =  async(server) =&gt; {
+export const getCourseRoute: FastifyPluginAsyncZod = async (server) =&gt; {
 &nbsp;
-server.get('/courses', {
-    schema: {
-        tags: ['Courses'],
-        summary: 'Essa rota lista todos os cursos.',
-        querystring: z.object({
-            search: z.string().optional(),
-            orderBy: z.enum(['id', 'title']).optional().default('id'),
-            page: z.coerce.number().optional().default(1)
+    server.get('/courses', {
+        schema: {
+            tags: ['Courses'],
+            summary: 'Essa rota lista todos os cursos.',
+            querystring: z.object({
+                search: z.string().optional(),
+                orderBy: z.enum(['id', 'title']).optional().default('id'),
+                page: z.coerce.number().optional().default(1)
+            }
+            ),
+            response: {
+                200: z.object({
+                    courses: z.array(
+                        z.object({
+                            id: z.uuid(),
+                            title: z.string(),
+                            description: z.string().nullable(),
+                            enrollments: z.number()
+                        })
+                    ),
+                    total: z.number(),
+                })
+            }
+&nbsp;
         }
-    ),
-        response: {
-            200: z.object({
-                courses: z.array(
-                z.object({
-                id: z.uuid(),
-                title: z.string(),
-                description: z.string().nullable(),
-                enrollments: z.number()
-            })
-        ),
-        total : z.number(),            
-    })       
-  }
-   
-}
-}, async (request, reply) =&gt; {
-    const { search, orderBy, page } = request.query
-    
-    const conditions : SQL[] = []
+    }, async (request, reply) =&gt; {
+        const { search, orderBy, page } = request.query
 &nbsp;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (search) {
-        conditions.push(ilike(courses.title, `%${search}%`))
-    }
+        const conditions: SQL[] = []
 &nbsp;
-    const [result, total] = await  Promise.all([
-        db
-        .select({
-            id: courses.id,
-            title: courses.title,
-            description: courses.description,
-            enrollments: count(enrollments.id)   
-        })
-        .from(courses)
-        .leftJoin(enrollments, eq(enrollments.courseId, courses.id))
-        .orderBy(asc(courses[orderBy]))
-        .offset((page - 1) *2)
-        .limit(3)
-        .where(and(...conditions))
-        .groupBy(courses.id),
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (search) {
+            conditions.push(ilike(courses.title, `%${search}%`))
+        }
 &nbsp;
-        db.$count(courses, and(...conditions))
-    ])
+        const [result, total] = await Promise.all([
+            db
+                .select({
+                    id: courses.id,
+                    title: courses.title,
+                    description: courses.description,
+                    enrollments: count(enrollments.id)
+                })
+                .from(courses)
+                .leftJoin(enrollments, eq(enrollments.courseId, courses.id))
+                .orderBy(asc(courses[orderBy]))
+                .offset((page - 1) * 2)
+                .limit(3)
+                .where(and(...conditions))
+                .groupBy(courses.id),
 &nbsp;
-    return reply.send({courses: result, total})
-})
+            db.$count(courses, and(...conditions))
+        ])
+&nbsp;
+        return reply.send({ courses: result, total })
+    })
 }
 &nbsp;
 &nbsp;</pre></td></tr></table></pre>
@@ -268,7 +268,7 @@ server.get('/courses', {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-01T22:24:13.260Z
+                at 2025-12-02T05:54:40.382Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
