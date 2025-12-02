@@ -2,7 +2,7 @@ POST http://localhost:3333/courses
 Content-Type: application/json
 
 {
-    "title": "Curso de Python",
+    "title": "Curso de Angular",
     "description": "Programação com Jango"
 }
 #####
@@ -16,7 +16,8 @@ GET http://localhost:3333/courses
 GET http://localhost:3333/courses?search=pyt
 ####
 
-GET http://localhost:3333/courses/0d2755f1-c1aa-419f-aa78-a563673e7227
+GET http://localhost:3333/courses/5586ed3a-ca11-4e9d-af71-c5801cf5ceae
+
 ######
 
 PUT http://localhost:3333/courses/98ecb290-2d60-4f17-854c-adae2fbabcf7
@@ -29,17 +30,17 @@ Content-Type: application/json
 
 ##########
 
-PATCH http://localhost:3333/courses/98ecb290-2d60-4f17-854c-adae2fbabcf7
+PATCH http://localhost:3333/courses/5586ed3a-ca11-4e9d-af71-c5801cf5ceae
 Content-Type: application/json
 
 {
-    "title": "Curso de Angular"
+    "title": "Curso de Angularr"
 }
 
 
 ###
 
-DELETE http://localhost:3333/courses/08e5693b-99f8-4053-a50d-0c9d9293eb0f
+DELETE http://localhost:3333/courses/00c6eaa0-e035-432c-af1d-cb134e618bc6
 
 ######
 

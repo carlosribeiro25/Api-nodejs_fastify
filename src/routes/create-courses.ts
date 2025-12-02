@@ -16,7 +16,7 @@ server.post('/courses', {
 
         response: {
             201: z.object({ courseId: z.uuid()}).describe('Curso criado com sucesso!'),
-            500: z.object({error: z.string() })
+            400: z.object({error: z.string() })
         }
     },
 }, async (request, reply) => { 
@@ -29,10 +29,9 @@ server.post('/courses', {
    .values({title: courseTitle,description: courseDescription})
    .returning()
 
-    return reply.status(201).send({ courseId: result[0].id})
-
+    return reply.status(201).send({ courseId: result[0].id  })
     } catch (error) {
-        return reply.status(500).send({error: 'Falha ao criar o curso' })
+        return reply.status(400).send({error: 'Falha ao criar o curso' })
     }
 })
 }

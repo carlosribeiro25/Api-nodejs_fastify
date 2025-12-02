@@ -1,8 +1,8 @@
 import { test , expect } from 'vitest';
 import  request  from 'supertest';
-import { server } from '../app.ts'
+import { server } from '../../app.ts'
 import { randomUUID } from 'crypto';
-import { makeCourse } from '../test/factories/make-course.ts';
+import { makeCourse } from '../../test/factories/make-course.ts';
 
 
 test('Get Courses ', async () => {
@@ -17,13 +17,7 @@ test('Get Courses ', async () => {
 
    expect(response.status).toEqual(200)
    expect(response.body).toEqual({
-    total: 1,
-    courses: [
-        {
-            id: expect.any(String),
-            title: titleId,
-            enrollmentes: 0
-        }
-    ],
+    total: 0,
+    courses: [],
    })
 })

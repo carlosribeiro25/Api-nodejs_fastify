@@ -5,11 +5,30 @@ import {fakerPT_BR as faker} from '@faker-js/faker'
 
 async function seed() {
     const usersInserts = await db.insert(users).values([
-        {name: faker.person.fullName(), email: faker.internet.email()},
-        {name: faker.person.fullName(), email: faker.internet.email()},
-        {name: faker.person.fullName(), email: faker.internet.email()},
-        {name: faker.person.fullName(), email: faker.internet.email()},
-        {name: faker.person.fullName(), email: faker.internet.email()}
+        {
+            name: faker.person.fullName(), 
+            email: faker.internet.email(),
+            password: '',
+            role: 'student'
+        },
+         {
+            name: faker.person.fullName(), 
+            email: faker.internet.email(),
+            password: '',
+            role: 'student'
+        },
+         {
+            name: faker.person.fullName(), 
+            email: faker.internet.email(),
+            password: '',
+            role: 'student'
+        },
+         {
+            name: faker.person.fullName(), 
+            email: faker.internet.email(),
+            password: '',
+            role: 'student'
+        },
     ]).returning()
 
     const coursesInsert = await db.insert(courses).values([

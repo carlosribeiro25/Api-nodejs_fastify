@@ -31,7 +31,7 @@ server.patch('/courses/:id', {
     if(!updated.length ){
         return reply.status(404).send({ error:'Curso não encontrado'})
     }  
-      return  reply.status(200).send({mensagem:'Curso atualizado com sucesso', courses: updated[0] })
+      return  reply.status(200).send({ message:'Curso atualizado com sucesso', courses: updated[0] })
         
 });
 }

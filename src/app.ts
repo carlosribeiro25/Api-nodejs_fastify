@@ -7,8 +7,8 @@ import fastifySwaggerUi from "@fastify/swagger-ui"
 import { createCourseRoute } from "./routes/create-courses.ts"
 import { getCourseRoute } from "./routes/get-courses.ts"
 import { getCourseByIDRoute } from "./routes/get-coursesById.ts"
-import { updateCourseRoutePatch } from "./routes/update-patch-courses.ts"
-import { updateCourseRoutePut } from "./routes/update-put-courses.ts"
+import { updateCourseRoutePatch } from "./routes/patch-courses.ts"
+import { updateCourseRoutePut } from "./routes/put-courses.ts"
 import { deleteCourseRoute } from "./routes/delete-courses.ts"
 
 

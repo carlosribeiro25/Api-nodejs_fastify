@@ -26,7 +26,7 @@ server.delete('/courses/:id' , {
     .returning()
     
     if(result.length > 0){
-        reply.status(200).send(`Curso deletado com sucesso  `)
+        reply.status(200).send("Curso deletado com sucesso")
     } else {
         reply.status(404).send("Curso nao encontrado!" )
     }
