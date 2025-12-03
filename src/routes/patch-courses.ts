@@ -3,10 +3,16 @@ import { db } from "../database/cliente.ts"
 import { courses } from "../database/schema.ts"
 import  z from "zod"
 import { eq } from 'drizzle-orm'
+import { checkRequestJwt } from "./hooks/check-req-jwt.ts"
+import { checkUserRole } from "./hooks/check-user-role.ts"
 
 export const updateCourseRoutePatch: FastifyPluginAsyncZod =  async(server) => {
 
 server.patch('/courses/:id', {
+    preHandler: [
+                checkRequestJwt,
+                checkUserRole('manager'),
+            ],
     schema:{
         tags: ['Courses'],
         params: z.object({

@@ -2,22 +2,22 @@ import { test, expect } from 'vitest';
 import request from 'supertest';
 import { server } from '../../app.ts'
 import { faker } from '@faker-js/faker';
-import { makeCourse } from '../../test/factories/make-course.ts';
-import { courses } from '../../database/schema.ts';
+import { makeAuthenticatedUser } from '../../test/factories/make-user.ts'
+
 
 test('Curso atualizado com sucesso!', async () => {
   await server.ready()
 
-  const course = await makeCourse()
+  const { token } = await makeAuthenticatedUser('manager')
 
   const response = await request(server.server)
-    .patch(`/courses/${course.id}`)
+    .patch(`/courses/073fcefa-4a55-41a0-a4fe-74c6eff25130`)
     .set('Content-Type', 'application/json')
-    .send({ title: faker.lorem.words(4) }
+    .set('Authorization', token)
+    .send({ title: faker.lorem.words(3) }
     )
 
   expect(response.status).toEqual(200)
-
   expect(response.body).toEqual({
     message: "Curso atualizado com sucesso",
     courses: {
@@ -26,4 +26,22 @@ test('Curso atualizado com sucesso!', async () => {
       description: expect.any(String) || null
     }
   })
+})
+
+test('Course not found', async () => {
+  await server.ready()
+  const { token } = await makeAuthenticatedUser('manager')
+
+  const response = await request(server.server)
+    .patch(`/courses/073fcefa-4a55-41a0-a4fe-74c6eff25120`)
+    .set('Content-Type', 'application/json')
+    .set('Authorization', token)
+    .send({ title: faker.lorem.words(3) }
+    )
+
+  expect(response.status).toEqual(404)
+  expect(response.body).toEqual({
+    error: "Curso não encontrado", 
+  })
+
 })

@@ -3,10 +3,16 @@ import { db } from "../database/cliente.ts"
 import { courses } from "../database/schema.ts"
 import z from "zod"
 import { eq } from 'drizzle-orm'
+import { checkRequestJwt } from "./hooks/check-req-jwt.ts"
+import { checkUserRole } from "./hooks/check-user-role.ts"
 
 export const updateCourseRoutePut: FastifyPluginAsyncZod =  async(server) => {
 
 server.put('/courses/:id', {
+     preHandler: [
+                    checkRequestJwt,
+                    checkUserRole('manager'),
+                ],
     schema:{
         tags: ['Courses'],
         params: z.object({
@@ -29,7 +35,7 @@ server.put('/courses/:id', {
             .returning();
 
         if (result.length === 0) {
-            return reply.status(404).send({ error: 'Curso nao encontrado' })
+            return reply.status(404).send({ error: 'Curso não encontrado' })
         }
 
         return reply.status(200).send({ message: 'Curso atualizado com sucesso', course: result[0] })

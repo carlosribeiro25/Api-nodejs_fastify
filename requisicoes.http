@@ -1,10 +1,9 @@
 POST http://localhost:3333/courses
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDczNDYxOX0.2tDT64sOhyDF_uB3Fn-jFMw_beupMqSmXPKcgr6CtwM
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc1MDE3NX0.9V9lmvVEbkOsA3mS7ghUv484mcKwX-L5eyb1UV2tRHo
 {
-    "title": "Curso de IAsdbersber sdsdz",
-    "description": "Programação para leigos"
+    "title": "Curso de IAsdbersber sdsd sdsez",
+    "description": "Programação para leigos vrvr"
 }
 
 #####
@@ -13,36 +12,40 @@ GET http://localhost:3333/courses?orderBy=title&page=3
 ####
 
 GET http://localhost:3333/courses
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc0Mjk5MH0.-VaNu5-5NfoEpht9bgXDM9f9dUr6tOCqJ62sC_U3Qjg
 ###
 
 GET http://localhost:3333/courses?search=pyt
 ####
 
-GET http://localhost:3333/courses/c8edc085-0735-4a64-9fbe-734fd4ceb058
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDczNDQ4N30.wnQzXgv-EJ1dnNDQ-cSSqnsQaE4Vr0AhqCSC92D-NDM
+GET http://localhost:3333/courses/48a97c3c-5cc7-4e56-bb0f-823cb1aa2d53
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc1MDE3NX0.9V9lmvVEbkOsA3mS7ghUv484mcKwX-L5eyb1UV2tRHo
 
 ######
 
-PUT http://localhost:3333/courses/98ecb290-2d60-4f17-854c-adae2fbabcf7
+PUT http://localhost:3333/courses/134597d8-34aa-4ea8-ba68-a3a2fa25a7ac
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc1MDE3NX0.9V9lmvVEbkOsA3mS7ghUv484mcKwX-L5eyb1UV2tRHo
 
 {
-    "title": "Curso de NodeJs",
+    "title": "Curso de NodeJdsv",
     "description": "Curso completo!"
 }
 
 ##########
 
-PATCH http://localhost:3333/courses/5586ed3a-ca11-4e9d-af71-c5801cf5ceae
+PATCH http://localhost:3333/courses/134597d8-34aa-4ea8-ba68-a3a2fa25a7ac
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc1MDE3NX0.9V9lmvVEbkOsA3mS7ghUv484mcKwX-L5eyb1UV2tRHo
 
 {
-    "title": "Curso de Angularr"
+    "title": "Curso de Angulssarr"
 }
 
 ###
 
-DELETE http://localhost:3333/courses/00c6eaa0-e035-432c-af1d-cb134e618bc6
+DELETE http://localhost:3333/courses/c8edc085-0735-4a64-9fbe-734fd4ceb058
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDczODU5OX0.8DCBv3lpui0_k1tuHfss9KO1Wbny_UybPrr2aClBufc
 
 ######
 

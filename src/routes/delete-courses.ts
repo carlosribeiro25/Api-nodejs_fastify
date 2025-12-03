@@ -3,10 +3,15 @@ import { db } from "../database/cliente.ts"
 import { courses } from "../database/schema.ts"
 import z from "zod"
 import { eq } from 'drizzle-orm'
-
+import { checkRequestJwt } from "./hooks/check-req-jwt.ts"
+import { checkUserRole } from "./hooks/check-user-role.ts"
 
 export const deleteCourseRoute: FastifyPluginAsyncZod = async (server) => {
     server.delete('/courses/:id', {
+         preHandler: [
+                    checkRequestJwt,
+                    checkUserRole('manager'),
+                ],
         schema: {
             tags: ['Courses'],
             params: z.object({
@@ -26,7 +31,7 @@ export const deleteCourseRoute: FastifyPluginAsyncZod = async (server) => {
             .returning()
 
         if (result.length > 0) {
-            reply.status(200).send("Curso deletado com sucesso")
+            reply.status(200).send( "Curso deletado com sucesso")
         } else {
             reply.status(404).send("Curso nao encontrado!")
         }
