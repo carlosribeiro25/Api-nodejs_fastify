@@ -1,10 +1,12 @@
 POST http://localhost:3333/courses
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDczNDYxOX0.2tDT64sOhyDF_uB3Fn-jFMw_beupMqSmXPKcgr6CtwM
 
 {
-    "title": "Curso de Angular",
-    "description": "Programação com Jango"
+    "title": "Curso de IAsdbersber sdsdz",
+    "description": "Programação para leigos"
 }
+
 #####
 
 GET http://localhost:3333/courses?orderBy=title&page=3
@@ -16,7 +18,8 @@ GET http://localhost:3333/courses
 GET http://localhost:3333/courses?search=pyt
 ####
 
-GET http://localhost:3333/courses/5586ed3a-ca11-4e9d-af71-c5801cf5ceae
+GET http://localhost:3333/courses/c8edc085-0735-4a64-9fbe-734fd4ceb058
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDczNDQ4N30.wnQzXgv-EJ1dnNDQ-cSSqnsQaE4Vr0AhqCSC92D-NDM
 
 ######
 
@@ -47,7 +50,7 @@ POST http://localhost:3333/sessions
 Content-Type: application/json
 
 {
-    "email": "MariaAlice.Moraes20@bol.com.br",
+    "email": "Isabelly1@yahoo.com",
     "password": "214580"
 }
 
