@@ -12,8 +12,6 @@ test('Get Courses ', async () => {
 
    const titleId = randomUUID()
 
-   const course = await makeCourse()
-
    const response = await request(server.server)
       .get(`/courses?search=${titleId}`)
       .set('Authorization', token)

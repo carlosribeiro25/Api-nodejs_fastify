@@ -10,14 +10,13 @@ test('Curso atualizado com sucesso!', async () => {
   const { token } = await makeAuthenticatedUser('manager')
 
   const response = await request(server.server)
-    .put(`/courses/073fcefa-4a55-41a0-a4fe-74c6eff25130`)
+    .put(`/courses/6f9eb605-b88a-4349-81da-d72c23387145`)
     .set('Content-Type', 'application/json')
     .set('Authorization', token)
     .send({ title: faker.lorem.words(4), description: faker.lorem.words(4) },
     )
 
   expect(response.status).toEqual(200)
-
   expect(response.body).toEqual({
     message: "Curso atualizado com sucesso",
     course: {
@@ -33,7 +32,7 @@ test('Course not found', async () => {
   const { token } = await makeAuthenticatedUser('manager')
 
  const response = await request(server.server)
-    .put(`/courses/073fcefa-4a55-41a0-a4fe-74c6eff65140`)
+    .put(`/courses/6f9eb605-b88a-4349-81da-d72c23387147`)
     .set('Content-Type', 'application/json')
     .set('Authorization', token)
     .send({ title: faker.lorem.words(4), description: faker.lorem.words(4) },

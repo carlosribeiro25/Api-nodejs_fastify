@@ -1,10 +1,12 @@
 POST http://localhost:3333/courses
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc1MDE3NX0.9V9lmvVEbkOsA3mS7ghUv484mcKwX-L5eyb1UV2tRHo
-{
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OWM4NjdkMC0xMmU0LTQ3MjMtYmE4My02YWNhMTdlMzg3YmQiLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDgyMjI3NX0.rvOxQ3pgnAYrp65X_Cc58OReO4TPAfZ773IfC7O9JJE
+  
+   {
     "title": "Curso de IAsdbersber sdsd sdsez",
     "description": "Programação para leigos vrvr"
-}
+   } 
+
 
 #####
 
@@ -18,8 +20,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNh
 GET http://localhost:3333/courses?search=pyt
 ####
 
-GET http://localhost:3333/courses/48a97c3c-5cc7-4e56-bb0f-823cb1aa2d53
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc1MDE3NX0.9V9lmvVEbkOsA3mS7ghUv484mcKwX-L5eyb1UV2tRHo
+GET http://localhost:3333/courses/49c76afd-7bb7-4cdf-9d96-edd9472a2616
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OWM4NjdkMC0xMmU0LTQ3MjMtYmE4My02YWNhMTdlMzg3YmQiLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDgyMjI3NX0.rvOxQ3pgnAYrp65X_Cc58OReO4TPAfZ773IfC7O9JJE
 
 ######
 
@@ -53,7 +55,7 @@ POST http://localhost:3333/sessions
 Content-Type: application/json
 
 {
-    "email": "Isabelly1@yahoo.com",
+    "email": "MariaAlice.Moraes20@bol.com.br",
     "password": "214580"
 }
 

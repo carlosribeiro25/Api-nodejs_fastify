@@ -1,7 +1,6 @@
 import { test, expect } from 'vitest';
 import request from 'supertest';
 import { server } from '../../app.ts'
-import { faker } from '@faker-js/faker';
 import { makeUser } from '../../test/factories/make-user.ts';
 
 test('login', async () => {
