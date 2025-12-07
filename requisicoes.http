@@ -18,8 +18,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNh
 GET http://localhost:3333/courses?search=pyt
 ####
 
-GET http://localhost:3333/courses/48a97c3c-5cc7-4e56-bb0f-823cb1aa2d53
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc1MDE3NX0.9V9lmvVEbkOsA3mS7ghUv484mcKwX-L5eyb1UV2tRHo
+GET http://localhost:3333/courses/2cbd1246-e8d5-4dba-b22e-e6078edc0840
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NTA4MDI1OX0.8J2oGdcEQaeEkw6mqUCtA0IyWfaIQzMee7uE_Rfe2lA
 
 ######
 
