@@ -1,40 +1,40 @@
-POST http://localhost:3333/courses
+POST http://localhost:8080/courses
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc1MDE3NX0.9V9lmvVEbkOsA3mS7ghUv484mcKwX-L5eyb1UV2tRHo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NTA5MzYwOX0.rqsLKSPVhtymF3xiQhHrPSNjk0PzAs68Jpg98t-e2b8
+
 {
-    "title": "Curso de IAsdbersber sdsd sdsez",
+    "title": "Curso de IAsdbersber balal",
     "description": "Programação para leigos vrvr"
 }
 
 #####
 
-GET http://localhost:3333/courses?orderBy=title&page=3
+GET http://localhost:8080/courses?orderBy=title&page=3
 ####
 
-GET http://localhost:3333/courses
+GET http://localhost:8080/courses
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc0Mjk5MH0.-VaNu5-5NfoEpht9bgXDM9f9dUr6tOCqJ62sC_U3Qjg
 ###
 
-GET http://localhost:3333/courses?search=pyt
+GET http://localhost:8080/courses?search=pyt
 ####
 
-GET http://localhost:3333/courses/2cbd1246-e8d5-4dba-b22e-e6078edc0840
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NTA4MDI1OX0.8J2oGdcEQaeEkw6mqUCtA0IyWfaIQzMee7uE_Rfe2lA
-
+GET http://localhost:8080/courses/2cbd1246-e8d5-4dba-b22e-e6078edc0840
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NTA5MDc1M30.GU8-Uu4Jsuy-AYYTdEqkioKCnxphZanNOK104ZHP4fo
 ######
 
-PUT http://localhost:3333/courses/134597d8-34aa-4ea8-ba68-a3a2fa25a7ac
+PUT http://localhost:8080/courses/c11ca6c3-71d6-40ae-b746-d025336d679c
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc1MDE3NX0.9V9lmvVEbkOsA3mS7ghUv484mcKwX-L5eyb1UV2tRHo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NTA5MzYwOX0.rqsLKSPVhtymF3xiQhHrPSNjk0PzAs68Jpg98t-e2b8
 
 {
-    "title": "Curso de NodeJdsv",
+    "title": "Curso de NodeJdsvfjfjfy",
     "description": "Curso completo!"
 }
 
 ##########
 
-PATCH http://localhost:3333/courses/134597d8-34aa-4ea8-ba68-a3a2fa25a7ac
+PATCH http://localhost:8080/courses/134597d8-34aa-4ea8-ba68-a3a2fa25a7ac
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc1MDE3NX0.9V9lmvVEbkOsA3mS7ghUv484mcKwX-L5eyb1UV2tRHo
 
@@ -44,12 +44,11 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNh
 
 ###
 
-DELETE http://localhost:3333/courses/c8edc085-0735-4a64-9fbe-734fd4ceb058
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDczODU5OX0.8DCBv3lpui0_k1tuHfss9KO1Wbny_UybPrr2aClBufc
-
+DELETE http://localhost:8080/courses/c6c9f50a-d0a0-49e7-b188-84f0a95abb6e
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc0Mjk5MH0.-VaNu5-5NfoEpht9bgXDM9f9dUr6tOCqJ62sC_U3Qjg
 ######
 
-POST http://localhost:3333/sessions
+POST http://localhost:8080/sessions
 Content-Type: application/json
 
 {
