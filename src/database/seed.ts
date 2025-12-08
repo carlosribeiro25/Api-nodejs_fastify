@@ -1,5 +1,5 @@
-import { courses, enrollments, users } from "./schema.ts";
-import { db } from "./cliente.ts";
+import { courses, enrollments, users } from "./schema";
+import { db } from "./cliente";
 import {fakerPT_BR as faker} from '@faker-js/faker';
 import { hash } from 'argon2';
 
