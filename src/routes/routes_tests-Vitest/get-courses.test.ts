@@ -1,9 +1,9 @@
 import { test, expect } from 'vitest';
 import request from 'supertest';
-import { server } from '../../app.ts'
+import { server } from '../../app'
 import { randomUUID } from 'crypto';
-import { makeCourse } from '../../test/factories/make-course.ts';
-import {makeAuthenticatedUser} from '../../test/factories/make-user.ts'
+import { makeCourse } from '../../test/factories/make-course';
+import {makeAuthenticatedUser} from '../../test/factories/make-user'
 
 
 test('Get Courses ', async () => {

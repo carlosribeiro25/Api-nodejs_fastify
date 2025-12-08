@@ -1,9 +1,9 @@
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
-import { db } from "../database/cliente.ts"
-import { courses } from "../database/schema.ts"
+import { db } from "../database/cliente"
+import { courses } from "../database/schema"
 import z from "zod"
-import { checkRequestJwt } from "./hooks/check-req-jwt.ts"
-import { checkUserRole } from "./hooks/check-user-role.ts"
+import { checkRequestJwt } from "./hooks/check-req-jwt"
+import { checkUserRole } from "./hooks/check-user-role"
 
 
 export const createCourseRoute: FastifyPluginAsyncZod = async (server) => {

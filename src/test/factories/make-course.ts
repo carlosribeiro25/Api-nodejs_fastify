@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker"
-import { db } from "../../database/cliente.ts"
-import { courses } from "../../database/schema.ts"
+import { db } from "../../database/cliente"
+import { courses } from "../../database/schema"
 import  { randomUUID } from 'node:crypto'
 
 export async function makeCourse() {

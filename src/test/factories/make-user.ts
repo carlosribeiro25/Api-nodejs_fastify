@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker"
-import { db } from "../../database/cliente.ts"
-import { users } from "../../database/schema.ts"
+import { db } from "../../database/cliente"
+import { users } from "../../database/schema"
 import { randomUUID } from 'node:crypto'
 import { hash } from "argon2"
 import jwt from 'jsonwebtoken'

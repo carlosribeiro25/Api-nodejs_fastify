@@ -1,8 +1,8 @@
 import { test, expect } from 'vitest';
 import request from 'supertest';
-import { server } from '../../app.ts'
-import { makeCourse } from '../../test/factories/make-course.ts';
-import { makeAuthenticatedUser } from '../../test/factories/make-user.ts';
+import { server } from '../../app'
+import { makeCourse } from '../../test/factories/make-course';
+import { makeAuthenticatedUser } from '../../test/factories/make-user';
 
 test('Return a course by Id ', async () => {
     await server.ready()
