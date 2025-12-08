@@ -1,10 +1,14 @@
 POST http://localhost:3333/courses
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc1MDE3NX0.9V9lmvVEbkOsA3mS7ghUv484mcKwX-L5eyb1UV2tRHo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NTE3MDIxNH0.7gwZsL-y3Kyr7srbeN63t2Z6_2IGD0c3K-Mj7Q9qMlo
+
 {
     "title": "Curso de IAsdbersber sdsd sdsez",
     "description": "Programação para leigos vrvr"
+
 }
+    
+
 
 #####
 
@@ -19,7 +23,7 @@ GET http://localhost:3333/courses?search=pyt
 ####
 
 GET http://localhost:3333/courses/2cbd1246-e8d5-4dba-b22e-e6078edc0840
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NTA4MDI1OX0.8J2oGdcEQaeEkw6mqUCtA0IyWfaIQzMee7uE_Rfe2lA
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NTE3MDIxNH0.7gwZsL-y3Kyr7srbeN63t2Z6_2IGD0c3K-Mj7Q9qMlo
 
 ######
 
