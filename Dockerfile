@@ -3,28 +3,18 @@ FROM node:22-alpine AS builder
 WORKDIR /app
 
 COPY package*.json ./
+RUN npm ci
 
-# instalar dependências de dev (precisa para tsc)
-RUN npm install
-
-COPY . .
-
-# gerar o dist
+COPY . ./
 RUN npm run build
 
-# -----------------------------
-# Imagem final — somente produção
-# -----------------------------
-FROM node:22-alpine AS production
+FROM node:22-alpine
 
 WORKDIR /app
 
 COPY package*.json ./
+RUN npm ci --omit=dev
 
-# instalar só dependências de produção
-RUN npm install --only=production
-
-# copiar build compilado
 COPY --from=builder /app/dist ./dist
 
 EXPOSE 3333
