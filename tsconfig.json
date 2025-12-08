@@ -7,13 +7,17 @@
     "lib": ["es2024", "ESNext.Array", "ESNext.Collection", "ESNext.Iterator"],
     "module": "nodenext",
     "target": "es2022",
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
-    
+
+    // remover → "allowImportingTsExtensions": true,
 
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "node16"
-  }
+    "moduleResolution": "node16",
+
+    // necessário para gerar dist
+    "noEmit": false,
+    "outDir": "dist"
+  },
+  "include": ["src"]
 }

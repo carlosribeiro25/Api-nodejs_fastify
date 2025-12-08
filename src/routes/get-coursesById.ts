@@ -1,10 +1,10 @@
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod" 
-import { db } from "../database/cliente.ts"
-import { courses } from "../database/schema.ts"
+import { db } from "../database/cliente"
+import { courses } from "../database/schema"
 import z from "zod"
 import { eq } from 'drizzle-orm'
-import { checkRequestJwt } from "./hooks/check-req-jwt.ts"
-import { getAuthenticatedUser } from "./utils/get-authenticated-use.ts"
+import { checkRequestJwt } from "./hooks/check-req-jwt"
+import { getAuthenticatedUser } from "./utils/get-authenticated-use"
 
 export const getCourseByIDRoute: FastifyPluginAsyncZod =  async(server) => {
 

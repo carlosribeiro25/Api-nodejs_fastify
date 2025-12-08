@@ -8,8 +8,6 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNh
 
 }
     
-
-
 #####
 
 GET http://localhost:3333/courses?orderBy=title&page=3
