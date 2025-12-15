@@ -11,6 +11,8 @@ import { updateCourseRoutePatch } from "./routes/patch-courses"
 import { updateCourseRoutePut } from "./routes/put-courses"
 import { deleteCourseRoute } from "./routes/delete-courses"
 import { loginRouter } from "./routes/login"
+import { routeDefault } from "./routes/route-default"
+
 
 
 const server = fastify({
@@ -45,6 +47,8 @@ server.register(fastifySwaggerUi,  {
 }) 
 
 }
+
+server.register(routeDefault)
 server.register(createCourseRoute)
 server.register(getCourseRoute)
 server.register(getCourseByIDRoute)
@@ -52,5 +56,6 @@ server.register(updateCourseRoutePatch)
 server.register(updateCourseRoutePut)
 server.register(deleteCourseRoute)
 server.register(loginRouter)
+
 
 export {server}
