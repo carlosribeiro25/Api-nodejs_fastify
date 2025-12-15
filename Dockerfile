@@ -12,8 +12,13 @@ FROM node:22-alpine
 
 WORKDIR /app
 
+RUN apk add --no-cache openssl ca-certificates
+
 COPY package*.json ./
+
 RUN npm ci 
+
+COPY . .
 
 COPY --from=builder /app/dist ./dist
 
