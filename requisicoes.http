@@ -14,20 +14,21 @@ GET http://localhost:3333/courses?orderBy=title&page=3
 ####
 
 GET http://localhost:3333/courses
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc0Mjk5MH0.-VaNu5-5NfoEpht9bgXDM9f9dUr6tOCqJ62sC_U3Qjg
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NTg0NTQ4NH0.jVGp0LJtEZ-WYK_itrIIulMQQMyqTeZJ7WrJfzLbjrA
+
 ###
 
 GET http://localhost:3333/courses?search=pyt
 ####
 
 GET http://localhost:3333/courses/2cbd1246-e8d5-4dba-b22e-e6078edc0840
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NTE3MDIxNH0.7gwZsL-y3Kyr7srbeN63t2Z6_2IGD0c3K-Mj7Q9qMlo
+Authorization: 
 
 ######
 
 PUT http://localhost:3333/courses/134597d8-34aa-4ea8-ba68-a3a2fa25a7ac
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc1MDE3NX0.9V9lmvVEbkOsA3mS7ghUv484mcKwX-L5eyb1UV2tRHo
+Authorization: 
 
 {
     "title": "Curso de NodeJdsv",
@@ -38,7 +39,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNh
 
 PATCH http://localhost:3333/courses/134597d8-34aa-4ea8-ba68-a3a2fa25a7ac
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDc1MDE3NX0.9V9lmvVEbkOsA3mS7ghUv484mcKwX-L5eyb1UV2tRHo
+Authorization: 
 
 {
     "title": "Curso de Angulssarr"
@@ -47,7 +48,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNh
 ###
 
 DELETE http://localhost:3333/courses/c8edc085-0735-4a64-9fbe-734fd4ceb058
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NDczODU5OX0.8DCBv3lpui0_k1tuHfss9KO1Wbny_UybPrr2aClBufc
+Authorization: 
 
 ######
 

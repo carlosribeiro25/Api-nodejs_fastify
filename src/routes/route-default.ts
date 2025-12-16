@@ -7,6 +7,5 @@ export const routeDefault: FastifyPluginAsyncZod = async (server) => {
 
     server.get('/', async (request, reply) => {
         return reply.status(200).send('Api scholl it´s workink 🎉')
-
     })
 }

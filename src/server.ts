@@ -1,4 +1,4 @@
-import {server} from './app'
+import {server} from './app.js'
 
 const port = process.env.PORT || 3333
 
