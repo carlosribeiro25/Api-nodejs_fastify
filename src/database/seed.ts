@@ -1,4 +1,4 @@
-import { courses, enrollments, users } from "./schema";
+import { courses, enrollments, users } from '../database/schema.js';
 import { db } from "./cliente";
 import {fakerPT_BR as faker} from '@faker-js/faker';
 import { hash } from 'argon2';
@@ -9,28 +9,23 @@ async function seed() {
     const usersInserts = await db.insert(users).values([
         {
             name: faker.person.fullName(), 
-            email: faker.internet.email(),
+            email: faker.internet.email().toLowerCase(),
             password: passwordHash,
-            role: 'student'
+            role: 'manager'
         },
          {
             name: faker.person.fullName(), 
-            email: faker.internet.email(),
+            email: faker.internet.email().toLowerCase(),
             password: passwordHash,
             role: 'student'
         },
-         {
+           {
             name: faker.person.fullName(), 
-            email: faker.internet.email(),
-            password:passwordHash,
-            role: 'student'
-        },
-         {
-            name: faker.person.fullName(), 
-            email: faker.internet.email(),
+            email: faker.internet.email().toLowerCase(),
             password: passwordHash,
             role: 'student'
-        },
+        }
+         
     ]).returning()
 
     const coursesInsert = await db.insert(courses).values([
@@ -43,8 +38,8 @@ async function seed() {
     await db.insert(enrollments).values([
         {courseId: coursesInsert[0].id, userId: usersInserts[0].id },
         {courseId: coursesInsert[0].id, userId: usersInserts[1].id },
-        {courseId: coursesInsert[1].id, userId: usersInserts[1].id },
-        {courseId: coursesInsert[2].id, userId: usersInserts[2].id },
+        {courseId: coursesInsert[2].id, userId: usersInserts[1].id },
+        {courseId: coursesInsert[0].id, userId: usersInserts[2].id },
     ])
 }
 

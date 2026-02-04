@@ -11,7 +11,7 @@
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
     "db:push": "drizzle-kit push",
-    "db:seed": "node --env-file .env src/database/seed.ts",
+    "db:seed": "tsx --env-file .env src/database/seed.ts",
     "test": "dotenv -e .env vitest run "
   },
   "keywords": [],

@@ -25,8 +25,7 @@ server.get('/courses/:id',{
                     description: z.string().nullable(),
                 })
             }),
-
-            404: z.object({error: z.string()}).describe('Curso nao esncontrado.')
+            404: z.object({error: z.string()}).describe('Curso nao encontrado!')
         },
     },
 }, async (request, reply) => {

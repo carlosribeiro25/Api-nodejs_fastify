@@ -22,7 +22,8 @@ export const loginRouter: FastifyPluginAsyncZod = async (server) => {
             }
         },
     }, async (request, reply) => {
-        const { email, password } = request.body
+        const { password } = request.body
+        const email = request.body.email.toLowerCase()
 
         const result = await db
             .select()
@@ -30,6 +31,8 @@ export const loginRouter: FastifyPluginAsyncZod = async (server) => {
             .where(eq(users.email, email))
 
         if (result.length === 0) {
+              console.log("Email não encontrado:", email)
+
             return reply.status(400).send({ error: 'Credenciais inválidas' })
         }
 
@@ -38,6 +41,8 @@ export const loginRouter: FastifyPluginAsyncZod = async (server) => {
         const doesPasswordsMatch = await verify(user.password, password)
 
         if (!doesPasswordsMatch) {
+            console.log("Senha inválida para:", email)
+
             return reply.status(400).send({ error: 'Credenciais inválidas' })
         }
 

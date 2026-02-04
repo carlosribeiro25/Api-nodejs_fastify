@@ -1,9 +1,9 @@
-POST http://localhost:3333/courses
+POST https://api-nodejs-fastify.fly.dev/courses
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NTE3MDIxNH0.7gwZsL-y3Kyr7srbeN63t2Z6_2IGD0c3K-Mj7Q9qMlo
 
 {
-    "title": "Curso de IAsdbersber sdsd sdsez",
+    "title": "Curso de IAsdbersber",
     "description": "Programação para leigos vrvr"
 
 }
@@ -14,16 +14,21 @@ GET http://localhost:3333/courses?orderBy=title&page=3
 ####
 
 GET http://localhost:3333/courses
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc2NTg0NTQ4NH0.jVGp0LJtEZ-WYK_itrIIulMQQMyqTeZJ7WrJfzLbjrA
+Authorization: 
+###
+
+GET http://localhost:3333/courses?search=pyt/courses
+
+####
+
+GET https://api-nodejs-fastify.fly.dev/courses
+Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc3MDIyODAyM30.n39-sTGrgaLNCrTgYA9fx0can75nZ1cIRRm3UK_hlV8
 
 ###
 
-GET http://localhost:3333/courses?search=pyt
-####
 
-GET http://localhost:3333/courses/2cbd1246-e8d5-4dba-b22e-e6078edc0840
-Authorization: 
-
+GET https://api-nodejs-fastify.fly.dev/courses
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDZjMzVhNy1jZTNhLTRhYzgtYTI4Yy04N2Q3M2NjMDA2ODciLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc3MDIyODU5MH0.3TDXwzOUPqobmXLxioMWYugjpbyAzFSnZ2GMVsEPUhw
 ######
 
 PUT http://localhost:3333/courses/134597d8-34aa-4ea8-ba68-a3a2fa25a7ac
@@ -52,11 +57,11 @@ Authorization:
 
 ######
 
-POST http://localhost:3333/sessions
+POST https://api-nodejs-fastify.fly.dev/sessions
 Content-Type: application/json
 
 {
-    "email": "Isabelly1@yahoo.com",
+    "email": "sophia48@hotmail.com",
     "password": "214580"
 }
 
