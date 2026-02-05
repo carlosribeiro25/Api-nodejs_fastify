@@ -1,2 +1,0 @@
-ALTER TABLE "users" ADD CONSTRAINT "name_length_check" CHECK (length("users"."name") >= 5);--> statement-breakpoint
-ALTER TABLE "users" ADD CONSTRAINT "email_length_check" CHECK (length("users"."email") >= 10);

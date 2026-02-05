@@ -61,7 +61,7 @@ POST https://api-nodejs-fastify.fly.dev/sessions
 Content-Type: application/json
 
 {
-    "email": "sophia48@hotmail.com",
+    "email": "enzo46@live.com",
     "password": "214580"
 }
 
