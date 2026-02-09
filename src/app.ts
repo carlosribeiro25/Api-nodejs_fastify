@@ -30,23 +30,44 @@ const server = fastify({
 server.setSerializerCompiler(serializerCompiler);
 server.setValidatorCompiler(validatorCompiler); 
 
-if(process.env.NODE_ENV === 'development') {
-    server.register(fastifySwagger, {
-    openapi: {
-        info: {
-            title: 'API com Node js',
-            version: '1.0.0',
-        }
+server.register(fastifySwagger, {
+  openapi: {
+    info: {
+      title: 'API School',
+      description: 'API de gerenciamento de alunos e cursos',
+      version: '1.0.0'
     },
+    servers: [
+      {
+        url: 'https://api-nodejs-fastify.fly.dev',
+        description: 'Produção'
+      },
+      {
+        url: 'http://localhost:3333',
+        description: 'Desenvolvimento'
+      }
+    ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT'
+        }
+      }
+    }
+  },
+  transform: jsonSchemaTransform,
+})
 
-    transform: jsonSchemaTransform,
-});
-
-server.register(fastifySwaggerUi,  {
+server.register(fastifySwaggerUi, {
   routePrefix: '/docs',
+  uiConfig: {
+    docExpansion: 'list',
+    deepLinking: true
+  }, 
+  staticCSP: true
 }) 
-
-}
 
 server.register(routeDefault)
 server.register(createCourseRoute)
@@ -56,6 +77,5 @@ server.register(updateCourseRoutePatch)
 server.register(updateCourseRoutePut)
 server.register(deleteCourseRoute)
 server.register(loginRouter)
-
 
 export {server}
